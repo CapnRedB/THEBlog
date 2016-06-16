@@ -10,5 +10,14 @@ router.get('/', function(req, res, next) {
 		});
 	});
 });
+router.get('/:id', function(req, res) {
+	knex('users').where('id', req.params.id).first().then(function(result, err) {
+		console.log(result);
+		res.render('user', {
+			title: "WTF",
+			user: result
+		})
+	})
+})
 
 module.exports = router;
