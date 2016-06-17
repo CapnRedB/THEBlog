@@ -1,13 +1,19 @@
 <table>
-	<th>
+	<tr>
+		<td>
+			Username
+		</td>
+		<td>
+			Full Name
+		</td>
 		<td>
 			<a href="/users/new">New User</a>
 		</td>
-	</th>
+	</tr>
 		{{#each users}}
 		 <tr>
-<td><a href='/users/{{this.id}}'>{{this.full_name}}</a></td>
-<td>{{this.username}}</td>
+<td><a href='/users/{{this.id}}'>{{this.username}}</a></td>
+<td>{{this.full_name}}</td>
 	</tr>
 	{{/each}}
 </table>
