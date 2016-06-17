@@ -4,7 +4,8 @@ exports.up = function(knex, Promise) {
 			table.string("body"),
 			table.integer("user_id").unsigned().index().references('users.id'),
 			table.timestamp('created_at').defaultTo(knex.fn.now()),
-			table.integer("posts_id").unsigned().index().references('posts.id')
+			table.integer("posts_id").unsigned().index().references('posts.id').onDelete(
+				'cascade')
 	});
 };
 

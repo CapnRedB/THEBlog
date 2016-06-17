@@ -3,7 +3,8 @@ exports.up = function(knex, Promise) {
 		table.increments().primary(),
 			table.string("title"),
 			table.string("content", 10000),
-			table.integer("user_id").unsigned().index().references('users.id'),
+			table.integer("user_id").unsigned().index().references('users.id').onDelete(
+				'cascade'),
 			table.timestamp('created_at').defaultTo(knex.fn.now());
 
 	});
